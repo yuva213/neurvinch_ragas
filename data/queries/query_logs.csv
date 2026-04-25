@@ -1,0 +1,31 @@
+query
+how often should vpn passwords be rotated
+what is the vpn credential rotation window
+when do we rotate remote access credentials
+how quickly do we escalate a security incident
+incident response escalation timing
+remote employee device encryption requirements
+endpoint protection requirement for remote laptops
+monthly patch compliance for remote devices
+how do i reset my company password
+self service password reset flow
+temporary credential lifetime after helpdesk reset
+account lockout threshold details
+where can i request exception for vendor onboarding
+vendor onboarding checklist for security review
+supplier risk assessment form location
+how do i submit third party security documents
+what is the nda approval workflow for vendors
+can legal pre-approve supplier contracts
+who signs off vendor access provisioning
+how long does procurement review take
+how do i rotate api keys for service accounts
+api key expiry policy for internal services
+service account credential vaulting policy
+what is our machine identity lifecycle
+how do i rotate kubernetes secrets automatically
+does ci pipeline enforce secret scanning
+how do i publish architecture decision records
+adr template for platform team
+where can i find design review checklist
+how to request production database access
