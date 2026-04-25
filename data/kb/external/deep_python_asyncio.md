@@ -1,0 +1,53 @@
+# Python `asyncio` — Asynchronous I/O
+
+`asyncio` is a library to write concurrent code using the `async/await` syntax.
+It is used as a foundation for multiple Python asynchronous frameworks that provide high-performance network and web-servers, database connection libraries, distributed task queues, etc.
+
+`asyncio` is often a perfect fit for IO-bound and high-level structured network code.
+
+## Hello World Example
+
+```python
+import asyncio
+
+async def main():
+    print('Hello ...')
+    await asyncio.sleep(1)
+    print('... World!')
+
+asyncio.run(main())
+```
+
+## High-level APIs
+
+`asyncio` provides a set of high-level APIs to:
+
+- run Python coroutines concurrently and have full control over their execution;
+- perform network IO and IPC;
+- control subprocesses;
+- distribute tasks via queues;
+- synchronize concurrent code;
+
+## Low-level APIs
+
+Additionally, there are low-level APIs for library and framework developers to:
+
+- create and manage event loops, which provide asynchronous APIs for networking, running subprocesses, handling OS signals, etc;
+- implement efficient protocols using transports;
+- bridge callback-based libraries and code with async/await syntax.
+
+## asyncio REPL
+
+You can experiment with an `asyncio` concurrent context in the REPL:
+
+```shell
+$ python -m asyncio
+asyncio REPL ...
+Use "await" directly instead of "asyncio.run()".
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import asyncio
+>>> await asyncio.sleep(10, result='hello')
+'hello'
+```
+
+This module does not work or is not available on WebAssembly platforms (`WASI`).
