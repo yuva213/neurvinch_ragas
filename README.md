@@ -56,6 +56,49 @@ This will launch the chat interface with Groq-powered AI generation backed by yo
 streamlit run app/manager_dashboard.py
 ```
 
+## Judge & Reviewer Quick Run
+
+Use these commands for a fast MVP evaluation flow.
+
+1. Configure environment:
+
+```bash
+copy .env.example .env
+```
+
+2. Add your Groq key in `.env`:
+
+```bash
+GROQ_API_KEY=your_api_key_here
+```
+
+3. Run full verification (pipeline + benchmark + tests + ragas traces):
+
+```bash
+python verify_system.py --full
+```
+
+4. Open the generated reviewer summary:
+
+```bash
+type outputs\eval\reviewer_summary.json
+```
+
+5. (Optional) Launch UI demos:
+
+```bash
+python -m streamlit run app/chat_interface.py
+python -m streamlit run app/manager_dashboard.py
+```
+
+### Expected Review Artifacts
+
+- `outputs/report.json`: overall pipeline score and counts
+- `outputs/eval/contradiction_benchmark.json`: heuristic vs transformer contradiction metrics
+- `outputs/eval/qa_traces.json`: held-out QA trace records with retrieved contexts/sources
+- `outputs/eval/ragas_metrics.json`: Ragas metric output over held-out QA set
+- `outputs/eval/reviewer_summary.json`: one-file summary for judges/reviewers
+
 ## Project layout
 
 - `src/neurvinch/indexing`: Structural ingestion and indexing
