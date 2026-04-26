@@ -3,7 +3,7 @@
     "question": "How often should VPN credentials be rotated?",
     "ground_truth": "VPN credentials should be rotated every 30 days for all employees and contractors.",
     "expected_source": "network_access_policy_v2.md",
-    "answer": "Based on the provided context, there are two conflicting policies regarding VPN credential rotation:\n\n1. VPN credentials must be rotated every 90 days for all employees and contractors (Source: data\\kb\\network_access_policy_v1.md)\n2. VPN credentials must be rotated every 30 days for all employees and contractors (Source: data\\kb\\network_access_policy_v2.md)\n\nThere is no clear indication which policy should take precedence or if both are valid. Without further information or context, it's impossible to provide a definitive answer.",
+    "answer": "Based on the provided context, there are two conflicting policies for VPN credential rotation:\n\n- One policy (Source: data\\kb\\network_access_policy_v1.md) states that VPN credentials must be rotated every 90 days for all employees and contractors.\n- Another policy (Source: data\\kb\\network_access_policy_v2.md) states that VPN credentials must be rotated every 30 days for all employees and contractors.\n\nSince there are two conflicting policies, it is unclear which one should be followed.",
     "contexts": [
       "VPN credentials must be rotated every 90 days for all employees and contractors.",
       "VPN credentials must be rotated every 30 days for all employees and contractors.",
@@ -22,7 +22,7 @@
     "question": "What is the security incident escalation window?",
     "ground_truth": "Security incidents must be escalated to the incident response team within 2 hours.",
     "expected_source": "network_access_policy_v2.md",
-    "answer": "Based on the provided context, there are two conflicting statements regarding the security incident escalation window:\n\n[1] Security incidents must be escalated to the incident response team within 2 hours. (Source: data\\kb\\network_access_policy_v2.md)\n[2] Security incidents must be escalated to the incident response team within 24 hours. (Source: data\\kb\\network_access_policy_v1.md)\n\nSince there are two conflicting statements, it's unclear what the actual security incident escalation window is.",
+    "answer": "Based on the provided context, there are two different escalation windows for security incidents:\n\n- According to the \"network_access_policy_v2.md\" document [1], security incidents must be escalated to the incident response team within 2 hours.\n- According to the \"network_access_policy_v1.md\" document [2], security incidents must be escalated to the incident response team within 24 hours.\n\nTo determine the current security incident escalation window, I would need more information or context, as it is not specified which policy is currently in effect.",
     "contexts": [
       "Security incidents must be escalated to the incident response team within 2 hours.",
       "Security incidents must be escalated to the incident response team within 24 hours.",
@@ -41,7 +41,7 @@
     "question": "What happens if self-service password reset fails?",
     "ground_truth": "Helpdesk can issue a temporary credential that is valid for 15 minutes.",
     "expected_source": "password_reset_procedure.md",
-    "answer": "If self-service password reset fails, helpdesk can issue a temporary credential valid for 15 minutes. \n\nSource: data\\kb\\password_reset_procedure.md",
+    "answer": "If self-service password reset fails, a helpdesk can issue a temporary credential valid for 15 minutes.",
     "contexts": [
       "If self-service fails, helpdesk can issue a temporary credential valid for 15 minutes.",
       "Users can reset passwords using the self-service portal with multi-factor verification.",
@@ -60,7 +60,7 @@
     "question": "When are accounts locked due to failed logins?",
     "ground_truth": "Accounts are locked after 5 failed login attempts within 10 minutes.",
     "expected_source": "password_reset_procedure.md",
-    "answer": "According to the provided context [1]: Accounts are locked after 5 failed login attempts within 10 minutes.",
+    "answer": "According to the provided context [1], accounts are locked after 5 failed login attempts within 10 minutes.",
     "contexts": [
       "Accounts are locked after 5 failed login attempts within 10 minutes.",
       "- `none` is the default tool choice when no tools are present.\n- `auto` is the default if tools are present.\n- Models constrain tools and capabilities based on their specific token and architectural limits.",
@@ -79,7 +79,7 @@
     "question": "What does React useState return?",
     "ground_truth": "useState returns an array with two values: the current state and a set function that triggers a re-render.",
     "expected_source": "deep_react_usestate.md",
-    "answer": "According to the context, React's `useState` returns an array with two elements: the state variable and the `set` function. \n\nThis can be seen in the example code snippet in [1], where it is mentioned that `const [age, setAge] = useState(28);` and `const [name, setName] = useState('Taylor');`. \n\nIn other words, `useState` returns an array that is immediately destructured into two variables, where the first variable is the state and the second variable is the `set` function.",
+    "answer": "According to the provided context, React's `useState` returns an array of two values: the state variable and a function to update the state. \n\nExample:\n```javascript\nconst [name, setName] = useState('Taylor');\n```\nThis is equivalent to:\n```javascript\nconst state = useState('Taylor');\nconst [name, setName] = state;\n```\nSource: data\\kb\\external\\deep_react_usestate.md",
     "contexts": [
       "Call `useState` at the top level of your component to declare a state variable.\n\n```javascript\nimport { useState } from 'react';\n\nfunction MyComponent() {\n  const [age, setAge] = useState(28);\n  const [name, setName] = useState('Taylor');\n  const [todos, setTodos] = useState(() => createTodos());\n  // ...\n}\n```\n\nThe convention is to name state variables like `[something, setSomething]` using array destructuring.",
       "`set` functions do not have a return value.",
@@ -98,7 +98,7 @@
     "question": "What are high-level asyncio APIs used for?",
     "ground_truth": "High-level asyncio APIs are used to run coroutines, perform network I/O, control subprocesses, distribute tasks via queues, and synchronize concurrent code.",
     "expected_source": "deep_python_asyncio.md",
-    "answer": "High-level `asyncio` APIs are used for:\n\n- running Python coroutines concurrently and having full control over their execution;\n- performing network IO and IPC;\n- controlling subprocesses;\n- distributing tasks via queues;\n- synchronizing concurrent code.\n\nSource: data\\kb\\external\\deep_python_asyncio.md",
+    "answer": "According to the provided context [2], high-level `asyncio` APIs are used for:\n\n- running Python coroutines concurrently and having full control over their execution;\n- performing network IO and IPC;\n- controlling subprocesses;\n- distributing tasks via queues;\n- synchronizing concurrent code.\n\nSource: data\\kb\\external\\deep_python_asyncio.md",
     "contexts": [
       "`asyncio` is a library to write concurrent code using the `async/await` syntax.\nIt is used as a foundation for multiple Python asynchronous frameworks that provide high-performance network and web-servers, database connection libraries, distributed task queues, etc.\n\n`asyncio` is often a perfect fit for IO-bound and high-level structured network code.",
       "`asyncio` provides a set of high-level APIs to:\n\n- run Python coroutines concurrently and have full control over their execution;\n- perform network IO and IPC;\n- control subprocesses;\n- distribute tasks via queues;\n- synchronize concurrent code;",
@@ -117,7 +117,7 @@
     "question": "What endpoints exist in OpenAI Chat Completions API?",
     "ground_truth": "Core endpoints include create, list, retrieve, update, and delete for /chat/completions resources.",
     "expected_source": "deep_openai_chat.md",
-    "answer": "Based on the provided context, the following endpoints exist in OpenAI Chat Completions API:\n\n1. `POST /chat/completions` - Create chat completion\n2. `GET /chat/completions` - List Chat Completions\n3. `GET /chat/completions/{completion_id}` - Get chat completion\n4. `POST /chat/completions/{completion_id}` - Update chat completion\n5. `DELETE /chat/completions/{completion_id}` - Delete chat completion\n\nThese endpoints are mentioned in the context [1] - `deep_openai_chat.md`.",
+    "answer": "According to the provided context:\n\n- The OpenAI Chat Completions API has the following endpoints:\n 1. `POST /chat/completions` - Create chat completion\n 2. `GET /chat/completions` - List Chat Completions\n 3. `GET /chat/completions/{completion_id}` - Get chat completion\n 4. `POST /chat/completions/{completion_id}` - Update chat completion\n 5. `DELETE /chat/completions/{completion_id}` - Delete chat completion\n\nSource: data\\kb\\external\\deep_openai_chat.md",
     "contexts": [
       "- **Create chat completion**: `POST /chat/completions`\n- **List Chat Completions**: `GET /chat/completions`\n- **Get chat completion**: `GET /chat/completions/{completion_id}`\n- **Update chat completion**: `POST /chat/completions/{completion_id}`\n- **Delete chat completion**: `DELETE /chat/completions/{completion_id}`",
       "The Chat Completions API lets you interact with OpenAI's Chat models, where given a list of messages comprising a conversation, the model will return a generated response.",
@@ -136,7 +136,7 @@
     "question": "How does Boto3 differ between clients and resources?",
     "ground_truth": "Boto3 clients expose low-level service APIs while resources provide higher-level object-oriented convenience for selected services.",
     "expected_source": "boto3_docs_curated.md",
-    "answer": "According to the provided context [2], Boto3 differs between clients and resources in the following way:\n\n- Clients: These expose low-level service APIs. \n- Resources: These provide object-oriented convenience for selected services.\n\nSource: data\\kb\\external\\boto3_docs_curated.md",
+    "answer": "According to the provided context:\n\n[2] Clients vs resources: \n  - Clients expose low-level service APIs.\n  - Resources provide object-oriented convenience for selected services.\nSource: data\\kb\\external\\boto3_docs_curated.md\n\nTherefore, the main difference between clients and resources in Boto3 is that clients expose low-level service APIs, whereas resources provide object-oriented convenience for selected services.",
     "contexts": [
       "Boto3 docs explain how to configure AWS credentials, create sessions, use low-level clients or higher-level resources, and interact with many AWS services.",
       "- Credential configuration: environment, shared config files, and IAM role-based flows.\n- Session management: central runtime object controlling region/profile behavior.\n- Clients vs resources:\n  - Clients expose low-level service APIs.\n  - Resources provide object-oriented convenience for selected services.\n- Pagination and waiters: handle large result sets and asynchronous resource state changes.\n- Error and retry behavior: design for transient AWS/network failures.",

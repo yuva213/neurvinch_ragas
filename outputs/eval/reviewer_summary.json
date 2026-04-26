@@ -1,0 +1,59 @@
+{
+  "quick": {
+    "config": {
+      "llm_provider": "groq",
+      "llm_model": "llama-3.1-8b-instant",
+      "embedding_backend": "tfidf",
+      "nli_backend": "heuristic"
+    },
+    "kb": {
+      "total_chunks_indexed": 91,
+      "top_retrieval_result": "data\\kb\\password_reset_procedure.md",
+      "top_retrieval_score": 1.0
+    },
+    "llm": {
+      "configured": true,
+      "connected": true,
+      "error": null
+    },
+    "latest_report": {
+      "knowledge_health_score": 0.9857,
+      "total_chunks": 91,
+      "contradictions": 2,
+      "void_clusters": 0
+    }
+  },
+  "full": {
+    "all_ok": true,
+    "steps": {
+      "pipeline": {
+        "command": "C:\\Python314\\python.exe run_pipeline.py",
+        "exit_code": 0,
+        "stdout": "Neurvinch pipeline completed.\n- knowledge_health_score: 0.9857\n- total_nodes: 91\n- total_chunks: 91\n- contradictions: 2\n- void_clusters: 0\n",
+        "stderr": "",
+        "ok": true
+      },
+      "contradiction_benchmark": {
+        "command": "C:\\Python314\\python.exe run_contradiction_benchmark.py",
+        "exit_code": 0,
+        "stdout": "Contradiction benchmark completed.\n- threshold: 0.85\n- heuristic  : precision=1.0, recall=1.0, f1=1.0\n- cross-encoder: precision=1.0, recall=1.0, f1=1.0\nSaved: D:\\neurvinch_ragas\\outputs\\eval\\contradiction_benchmark.json\n",
+        "stderr": "Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n\nLoading weights:   0%|          | 0/202 [00:00<?, ?it/s]\nLoading weights:   0%|          | 1/202 [00:00<00:26,  7.56it/s]\nLoading weights:   4%|3         | 8/202 [00:00<00:09, 19.92it/s]\nLoading weights:   7%|7         | 15/202 [00:00<00:08, 21.74it/s]\nLoading weights:   8%|8         | 17/202 [00:00<00:10, 17.53it/s]\nLoading weights:   9%|9         | 19/202 [00:01<00:12, 14.84it/s]\nLoading weights:  11%|#         | 22/202 [00:01<00:13, 12.99it/s]\nLoading weights:  13%|#3        | 27/202 [00:01<00:09, 18.76it/s]\nLoading weights:  18%|#7        | 36/202 [00:01<00:05, 30.53it/s]\nLoading weights:  23%|##2       | 46/202 [00:01<00:04, 33.05it/s]\nLoading weights:  29%|##9       | 59/202 [00:02<00:03, 47.30it/s]\nLoading weights:  32%|###2      | 65/202 [00:02<00:03, 37.74it/s]\nLoading weights:  59%|#####9    | 120/202 [00:02<00:00, 103.77it/s]\nLoading weights:  65%|######4   | 131/202 [00:02<00:00, 85.34it/s] \nLoading weights:  92%|#########1| 185/202 [00:03<00:00, 126.07it/s]\nLoading weights:  98%|#########8| 198/202 [00:03<00:00, 99.48it/s] \nLoading weights: 100%|##########| 202/202 [00:03<00:00, 60.37it/s]\n\u001b[1mDebertaV2ForSequenceClassification LOAD REPORT\u001b[0m from: cross-encoder/nli-deberta-v3-base\nKey                             | Status     |  | \n--------------------------------+------------+--+-\ndeberta.embeddings.position_ids | UNEXPECTED |  | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n",
+        "ok": true
+      },
+      "regression_tests": {
+        "command": "C:\\Python314\\python.exe -m unittest discover -s tests -p test_*.py",
+        "exit_code": 0,
+        "stdout": "",
+        "stderr": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.003s\n\nOK\n",
+        "ok": true
+      },
+      "ragas_eval": {
+        "command": "C:\\Python314\\python.exe run_ragas_eval.py",
+        "exit_code": 0,
+        "stdout": "Held-out QA tracing completed.\n- samples: 8\n- source_hit_rate: 1.0\n- ragas_status: ok\nSaved traces: D:\\neurvinch_ragas\\outputs\\eval\\qa_traces.json\nSaved metrics: D:\\neurvinch_ragas\\outputs\\eval\\ragas_metrics.json\n",
+        "stderr": "D:\\neurvinch_ragas\\run_ragas_eval.py:112: DeprecationWarning: LangchainLLMWrapper is deprecated and will be removed in a future version. Use llm_factory instead: from openai import OpenAI; from ragas.llms import llm_factory; llm = llm_factory('gpt-4o-mini', client=OpenAI(api_key='...'))\n  metrics = [Faithfulness(llm=LangchainLLMWrapper(llm))]\nD:\\neurvinch_ragas\\run_ragas_eval.py:116: DeprecationWarning: Importing faithfulness from 'ragas.metrics' is deprecated and will be removed in v1.0. Please use 'ragas.metrics.collections' instead. Example: from ragas.metrics.collections import faithfulness\n  from ragas.metrics import faithfulness\n\nEvaluating:   0%|          | 0/8 [00:00<?, ?it/s]\nEvaluating:  12%|#2        | 1/8 [00:44<05:13, 44.75s/it]\nEvaluating:  25%|##5       | 2/8 [00:58<02:39, 26.50s/it]\nEvaluating:  38%|###7      | 3/8 [01:10<01:39, 19.90s/it]\nEvaluating:  50%|#####     | 4/8 [01:17<00:59, 14.76s/it]\nEvaluating:  62%|######2   | 5/8 [01:31<00:43, 14.67s/it]\nEvaluating:  75%|#######5  | 6/8 [01:48<00:30, 15.21s/it]\nEvaluating:  88%|########7 | 7/8 [02:05<00:15, 15.76s/it]\nEvaluating: 100%|##########| 8/8 [02:34<00:00, 20.07s/it]\nEvaluating: 100%|##########| 8/8 [02:34<00:00, 19.29s/it]\n",
+        "ok": true
+      }
+    }
+  }
+}
