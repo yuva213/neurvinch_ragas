@@ -5,7 +5,7 @@
   "ragas": {
     "status": "ok",
     "metrics": {
-      "raw": "{'faithfulness': 0.8542}"
+      "raw": "{'faithfulness': 0.7583}"
     },
     "attempted_metrics": [
       "faithfulness"
