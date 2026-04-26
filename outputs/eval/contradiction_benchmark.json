@@ -1,0 +1,187 @@
+{
+  "threshold": 0.85,
+  "comparison": {
+    "heuristic": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "cross_encoder": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    }
+  },
+  "details": {
+    "heuristic": {
+      "configured_backend": "heuristic",
+      "samples": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "threshold": 0.85,
+      "backend_usage": {
+        "heuristic": 8
+      },
+      "pairs": [
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-0",
+          "chunk_b_id": "network_access_policy_v2-chunk-0",
+          "label": 1,
+          "prediction": 1,
+          "contradiction_probability": 0.93,
+          "backend_used": "heuristic",
+          "note": "VPN rotation policy changed from 90 days to 30 days"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-1",
+          "chunk_b_id": "network_access_policy_v2-chunk-1",
+          "label": 1,
+          "prediction": 1,
+          "contradiction_probability": 0.93,
+          "backend_used": "heuristic",
+          "note": "Incident escalation window changed from 24 hours to 2 hours"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-2",
+          "chunk_b_id": "network_access_policy_v2-chunk-2",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.08,
+          "backend_used": "heuristic",
+          "note": "v2 adds monthly patch validation but does not negate prior requirements"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-0",
+          "chunk_b_id": "password_reset_procedure-chunk-0",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.05,
+          "backend_used": "heuristic",
+          "note": "Different topics: VPN credential rotation vs password reset portal"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-1",
+          "chunk_b_id": "password_reset_procedure-chunk-1",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.05,
+          "backend_used": "heuristic",
+          "note": "Different topics: incident escalation vs temporary reset credential"
+        },
+        {
+          "chunk_a_id": "password_reset_procedure-chunk-1",
+          "chunk_b_id": "password_reset_procedure-chunk-2",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.05,
+          "backend_used": "heuristic",
+          "note": "Temporary credential lifetime and lockout threshold are not contradictory"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v2-chunk-0",
+          "chunk_b_id": "network_access_policy_v2-chunk-1",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.05,
+          "backend_used": "heuristic",
+          "note": "Two independent controls in the same policy version"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v2-chunk-1",
+          "chunk_b_id": "password_reset_procedure-chunk-2",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.05,
+          "backend_used": "heuristic",
+          "note": "Incident escalation and account lockout controls are not contradictory"
+        }
+      ]
+    },
+    "cross_encoder": {
+      "configured_backend": "cross-encoder",
+      "samples": 8,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "threshold": 0.85,
+      "backend_usage": {
+        "cross-encoder": 8
+      },
+      "pairs": [
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-0",
+          "chunk_b_id": "network_access_policy_v2-chunk-0",
+          "label": 1,
+          "prediction": 1,
+          "contradiction_probability": 0.9996,
+          "backend_used": "cross-encoder",
+          "note": "VPN rotation policy changed from 90 days to 30 days"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-1",
+          "chunk_b_id": "network_access_policy_v2-chunk-1",
+          "label": 1,
+          "prediction": 1,
+          "contradiction_probability": 0.8636,
+          "backend_used": "cross-encoder",
+          "note": "Incident escalation window changed from 24 hours to 2 hours"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-2",
+          "chunk_b_id": "network_access_policy_v2-chunk-2",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.0001,
+          "backend_used": "cross-encoder",
+          "note": "v2 adds monthly patch validation but does not negate prior requirements"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-0",
+          "chunk_b_id": "password_reset_procedure-chunk-0",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.0002,
+          "backend_used": "cross-encoder",
+          "note": "Different topics: VPN credential rotation vs password reset portal"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v1-chunk-1",
+          "chunk_b_id": "password_reset_procedure-chunk-1",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.0005,
+          "backend_used": "cross-encoder",
+          "note": "Different topics: incident escalation vs temporary reset credential"
+        },
+        {
+          "chunk_a_id": "password_reset_procedure-chunk-1",
+          "chunk_b_id": "password_reset_procedure-chunk-2",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.0039,
+          "backend_used": "cross-encoder",
+          "note": "Temporary credential lifetime and lockout threshold are not contradictory"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v2-chunk-0",
+          "chunk_b_id": "network_access_policy_v2-chunk-1",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.0011,
+          "backend_used": "cross-encoder",
+          "note": "Two independent controls in the same policy version"
+        },
+        {
+          "chunk_a_id": "network_access_policy_v2-chunk-1",
+          "chunk_b_id": "password_reset_procedure-chunk-2",
+          "label": 0,
+          "prediction": 0,
+          "contradiction_probability": 0.0043,
+          "backend_used": "cross-encoder",
+          "note": "Incident escalation and account lockout controls are not contradictory"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "question": "How often should VPN credentials be rotated?",
+    "ground_truth": "VPN credentials should be rotated every 30 days for all employees and contractors.",
+    "expected_source": "network_access_policy_v2.md"
+  },
+  {
+    "question": "What is the security incident escalation window?",
+    "ground_truth": "Security incidents must be escalated to the incident response team within 2 hours.",
+    "expected_source": "network_access_policy_v2.md"
+  },
+  {
+    "question": "What happens if self-service password reset fails?",
+    "ground_truth": "Helpdesk can issue a temporary credential that is valid for 15 minutes.",
+    "expected_source": "password_reset_procedure.md"
+  },
+  {
+    "question": "When are accounts locked due to failed logins?",
+    "ground_truth": "Accounts are locked after 5 failed login attempts within 10 minutes.",
+    "expected_source": "password_reset_procedure.md"
+  },
+  {
+    "question": "What does React useState return?",
+    "ground_truth": "useState returns an array with two values: the current state and a set function that triggers a re-render.",
+    "expected_source": "deep_react_usestate.md"
+  },
+  {
+    "question": "What are high-level asyncio APIs used for?",
+    "ground_truth": "High-level asyncio APIs are used to run coroutines, perform network I/O, control subprocesses, distribute tasks via queues, and synchronize concurrent code.",
+    "expected_source": "deep_python_asyncio.md"
+  },
+  {
+    "question": "What endpoints exist in OpenAI Chat Completions API?",
+    "ground_truth": "Core endpoints include create, list, retrieve, update, and delete for /chat/completions resources.",
+    "expected_source": "deep_openai_chat.md"
+  },
+  {
+    "question": "How does Boto3 differ between clients and resources?",
+    "ground_truth": "Boto3 clients expose low-level service APIs while resources provide higher-level object-oriented convenience for selected services.",
+    "expected_source": "boto3_docs_curated.md"
+  }
+]
