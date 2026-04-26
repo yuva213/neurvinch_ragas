@@ -155,6 +155,26 @@ def main() -> None:
     if not heldout_path.exists():
         raise FileNotFoundError("data/eval/qa_heldout.json is missing.")
 
+    if not settings.llm_api_key:
+        output = {
+            "samples": 0,
+            "source_hit_rate": 0.0,
+            "llm_model": settings.llm_model,
+            "ragas": {
+                "status": "skipped",
+                "reason": "GROQ_API_KEY is not configured. Set it in .env to run trace generation and ragas metrics.",
+                "metrics": {},
+            },
+        }
+        ragas_path.parent.mkdir(parents=True, exist_ok=True)
+        with ragas_path.open("w", encoding="utf-8") as f:
+            json.dump(output, f, indent=2)
+        print("Held-out QA tracing skipped.")
+        print("- ragas_status: skipped")
+        print("- reason: GROQ_API_KEY is not configured")
+        print(f"Saved metrics: {ragas_path}")
+        return
+
     dataset = load_heldout(heldout_path)
     traces = build_traces(dataset)
 
