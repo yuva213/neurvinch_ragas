@@ -14,9 +14,8 @@ build/
 dist/
 *.egg-info/
 
-DOCS/
 
-adocs/
+
 # Data outputs
 outputs/*.json
 outputs/*.csv
