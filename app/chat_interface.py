@@ -321,6 +321,39 @@ st.markdown(
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0a0e1a; }
     ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.4); border-radius: 3px; }
+
+    /* ── Premium Streamlit Expander styling ── */
+    [data-testid="stExpander"] {
+        background: rgba(255, 255, 255, 0.03) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 12px !important;
+        margin-bottom: 0.6rem !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+        overflow: hidden !important;
+        transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+    }
+    [data-testid="stExpander"]:hover {
+        border-color: rgba(99, 102, 241, 0.45) !important;
+        box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15) !important;
+    }
+    [data-testid="stExpander"] details {
+        border: none !important;
+        background: transparent !important;
+    }
+    [data-testid="stExpander"] summary {
+        font-family: 'Outfit', sans-serif !important;
+        font-size: 0.88rem !important;
+        font-weight: 500 !important;
+        color: #a5b4fc !important;
+        padding: 0.6rem 1rem !important;
+        background: transparent !important;
+    }
+    [data-testid="stExpander"] summary:hover {
+        color: #c7d2fe !important;
+    }
+    [data-testid="stExpander"] [data-testid="stMarkdownContainer"] {
+        padding: 0px !important;
+    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -404,27 +437,39 @@ if query:
                 unsafe_allow_html=True,
             )
 
-            # Source chips
-            chip_html = ""
-            for idx, result in enumerate(results, start=1):
-                source_path = Path(result.source.path).name
-                section = result.source.section or ""
-                label = f"{source_path}" + (f" › {section}" if section else "")
-                chip_html += (
-                    f'<span class="source-chip" title="{result.source.path} | score={result.score:.3f}">'
-                    f'<span class="chip-idx">{idx}</span>{label}'
-                    f"</span>"
-                )
-
+            # Interactive source expanders
             st.markdown(
-                f"""
-                <div class="sources-section">
-                    <div class="sources-label">📎 Sources</div>
-                    <div class="chips-row">{chip_html}</div>
+                """
+                <div class="sources-section" style="margin-bottom: 0.8rem;">
+                    <div class="sources-label">📎 Grounded Sources (Click to expand and view reference)</div>
                 </div>
                 """,
                 unsafe_allow_html=True,
             )
+
+            for idx, result in enumerate(results, start=1):
+                source_path = Path(result.source.path).name
+                section = result.source.section or ""
+                label = f"#{idx} 📄 {source_path}" + (f" › {section}" if section else "")
+                
+                with st.expander(label):
+                    st.markdown(
+                        f"""
+                        <div class="evidence-card" style="margin-bottom:0px; border-left: 3px solid #6366f1; background: rgba(255,255,255,0.01); padding: 0.8rem 1rem;">
+                            <div style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #818cf8; margin-bottom: 0.4rem;">
+                                Document Reference Content
+                            </div>
+                            <div style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6; white-space: pre-wrap; font-style: italic;">
+                                "{result.text}"
+                            </div>
+                            <div style="margin-top: 0.8rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 0.5rem; font-size: 0.75rem; color: #94a3b8; display: flex; flex-wrap: wrap; gap: 1rem;">
+                                <span><strong>Full Path:</strong> <code>{result.source.path}</code></span>
+                                <span><strong>Relevance Score:</strong> <code>{result.score:.4f}</code> (Semantic: {result.semantic_score:.4f}, BM25: {result.bm25_score:.4f})</span>
+                            </div>
+                        </div>
+                        """,
+                        unsafe_allow_html=True
+                    )
 
         else:
             # Retrieval-only mode
